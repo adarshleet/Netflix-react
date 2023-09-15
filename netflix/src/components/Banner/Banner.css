@@ -1,0 +1,41 @@
+.banner{
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.banner-img{
+    width: 100%;
+}
+
+.content{
+    width: 34rem;
+    position: absolute;
+    top: 8rem;
+}
+
+.content p{
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.more{
+    background-color: rgba(109, 109, 110, 0.7);
+}
+
+.buttons{
+    font-size: 1.2rem;
+}
+
+.play{
+    background-color: #fff;
+}
+
+.gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%; /* Height of the gradient overlay (adjust as needed) */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8)); /* Gradient overlay from transparent to black */
+  }
