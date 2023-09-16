@@ -7,7 +7,7 @@
 
 .posters{
     display: flex;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .poster{
@@ -16,9 +16,29 @@
     margin-right: .5rem;
 }
 
-.posters::-webkit-scrollbar{
-        display: none;
-}
+
+/* Style the scrollbar track */
+.posters::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    height: 6px;
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  .posters::-webkit-scrollbar-thumb {
+    background: #888; /* Background color of the thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+  }
+  
+  /* Style the scrollbar track when the thumb is being hovered */
+  .posters::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Style the scrollbar track when it is in a "pressed" state (e.g., clicked) */
+  .posters::-webkit-scrollbar-thumb:active {
+    background: #444;
+  }
+  
 
 .pop-up{
     top: -40px;

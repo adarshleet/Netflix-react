@@ -55,7 +55,7 @@ function RowPost(props) {
             <div className='posters'>
                 {movies && movies.map((movie) => (
                     <div
-                        className='poster-container'
+                        className='poster-container mb-4'
                         onMouseEnter={() => mouseEnter(movie.id)}
                         onMouseLeave={mouseLeave}
                         key={movie.id}
