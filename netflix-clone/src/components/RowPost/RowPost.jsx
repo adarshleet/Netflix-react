@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import Youtube from 'react-youtube'
 import './RowPost.css'
 import axios from '../../axios'
-import { image_url } from '../../constants/constants'
+import { image_url,API_KEY } from '../../constants/constants'
 
 function RowPost(props) {
     const [movies, setMovies] = useState()
     const [hoveredMovieId, setHoveredMovieId] = useState(false)
+    const [urlId,setUrlId] = useState()
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -21,11 +23,31 @@ function RowPost(props) {
 
     const mouseEnter = (movieId) => {
         setHoveredMovieId(movieId)
+        const fetchMovie = async()=>{
+            try {
+                const response = await axios.get(`/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`)
+                if(response.data.results.length!==0){
+                    setUrlId(response.data.results[0])
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchMovie()
     }
 
     const mouseLeave = () => {
         setHoveredMovieId(null)
     }
+
+    const opts = {
+        height: '210',
+        width: '350',
+        playerVars: {
+          // https://developers.google.com/youtube/player_parameters
+          autoplay: 1,
+        },
+      };
 
     return (
         <div className='row position-relative'>
@@ -45,7 +67,7 @@ function RowPost(props) {
                         />
                         {hoveredMovieId === movie.id &&
                             <div className='pop-up position-absolute'>
-                                <img className='pop-img' src={`${image_url + movie.backdrop_path}`} alt="" />
+                                {urlId ? <Youtube className='pop-img' videoId={urlId.key} opts={opts} /> : <img className='pop-img' src={`${image_url + movie.backdrop_path}`} alt="" />}
                                 <div className='p-3'>
                                     <div className='description d-flex justify-content-between'>
                                         <div>
