@@ -4,12 +4,16 @@ import title from './img/movie-title.webp'
 import play from './img/play.svg'
 import more from './img/round.svg'
 import banner from './img/banner.webp'
+import RowPost from '../RowPost/RowPost'
+import { TvShows } from '../../urls'
 
 function Banner() {
     return (
         <div className='banner'>
             <img className='img-fluid banner-img' src={banner} alt="" />
-            <div className='gradient-overlay'></div>
+            <div className='gradient-overlay'>
+                <RowPost title={'Critically Acclaimed TV Shows'} url={TvShows}/>
+            </div>
             <div className='content ms-5 img-fluid'>
                 <div className='my-4'>
                     <img className='img-fluid' src={title} alt="" />
